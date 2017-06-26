@@ -29,30 +29,60 @@ var data = [
   }
 ]
 
-function Comment(props) {
+function Badges(props) {
   return (
-    <div className="Comment">
-      <div className="UserInfo">
-        <img className="Avatar"
+    <div className="UserBadges col-sm-4">
+      <div className="badge">{props.userBadge[0]}</div>
+      <div className="badge">{props.userBadge[1]}</div>
+      <div className="badge">{props.userBadge[2]}</div>
+    </div>
+  )
+}
+
+function CommentBody(props) {
+  return (
+    <div className="Comment-body col-sm-4">
+      <h1>{props.commentHeading}</h1>
+      <div className="Comment-text">{props.text}</div>
+      <div className="Comment-date">
+        {props.date}
+      </div>
+    </div>
+  )
+}
+
+function Avatar(props) {
+  return (
+    <div className="col-sm-6 Avatar">
+      <div className="col-sm-6 col-sm-offset-3">
+        <img className="AvatarImage"
           src={props.author.avatarUrl}
           alt={props.author.name}
         />
-        <div className="UserInfo-name">
-          {props.author.name}
-        </div>
       </div>
-      <div className="Comment-body">
-        <h1>{props.commentHeading}</h1>
-        <div className="Comment-text">{props.text}</div>
-        <div className="Comment-date">
-          {props.date}
-        </div>
+      <div className="col-sm-6 col-sm-offset-3">
+        {props.author.name}
       </div>
-      <div className="UserBadges">
-        <div className="badge">{props.userBadge[0]}</div>
-        <div className="badge">{props.userBadge[1]}</div>
-        <div className="badge">{props.userBadge[2]}</div>
+    </div>
+  )
+}
+
+function UserInfo(props) {
+  return (
+    <div className="UserInfo col-sm-4">
+      <div className="UserInfo-name col-sm-7 col-sm-offset-1">
+        <Avatar author={props.author}/>
       </div>
+    </div>
+  );
+}
+
+function Comment(props) {
+  return (
+    <div className="Comment row">
+      <UserInfo author={props.author}/>
+      <Badges userBadge={props.userBadge}/>
+      <CommentBody commentHeading={props.commentHeading} text={props.text} date={props.date}/>
     </div>
   );
 }
@@ -64,14 +94,14 @@ function Application(props) {
     commentsArray.push(<Comment key={index} author={thisComment.author} userBadge={thisComment.userBadge} text={thisComment.text} commentHeading={thisComment.commentHeading} date={thisComment.date}/>)
   })
   return(
-    <div class="container">
+    <div className="col-sm-12">
       <h1>A Facebook Post or something</h1>
         return {commentsArray}
     </div>
-  )
+  );
 }
 
 ReactDOM.render(
-    <Application data={data} crossFitJunkie="Rissa"/>,
+    <Application data={data}/>,
     document.getElementById('groot')
 )

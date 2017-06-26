@@ -29,19 +29,15 @@ var data = [
   }
 ]
 
-function Badges(props) {
+function Badge(props) {
   return (
-    <div className="UserBadges col-sm-4">
-      <div className="badge">{props.userBadge[0]}</div>
-      <div className="badge">{props.userBadge[1]}</div>
-      <div className="badge">{props.userBadge[2]}</div>
-    </div>
+    <div className="badge text-center">{props.userBadge}</div>
   )
 }
 
 function CommentBody(props) {
   return (
-    <div className="Comment-body col-sm-4">
+    <div className="Comment-body col-sm-8">
       <h1>{props.commentHeading}</h1>
       <div className="Comment-text">{props.text}</div>
       <div className="Comment-date">
@@ -53,14 +49,14 @@ function CommentBody(props) {
 
 function Avatar(props) {
   return (
-    <div className="col-sm-6 Avatar">
-      <div className="col-sm-6 col-sm-offset-3">
+    <div className="col-sm-12 Avatar">
+      <div className="col-sm-6 col-sm-offset-1">
         <img className="AvatarImage"
           src={props.author.avatarUrl}
           alt={props.author.name}
         />
       </div>
-      <div className="col-sm-6 col-sm-offset-3">
+      <div className="col-sm-6 col-sm-offset-1">
         {props.author.name}
       </div>
     </div>
@@ -69,7 +65,7 @@ function Avatar(props) {
 
 function UserInfo(props) {
   return (
-    <div className="UserInfo col-sm-4">
+    <div className="UserInfo col-sm-2">
       <div className="UserInfo-name col-sm-7 col-sm-offset-1">
         <Avatar author={props.author}/>
       </div>
@@ -80,8 +76,13 @@ function UserInfo(props) {
 function Comment(props) {
   return (
     <div className="Comment row">
+      <div className="userBadges">
+        {props.userBadge.map((badge, index)=>{
+          return(<Badge key={index} userBadge={badge}/>)
+        })}
+      </div>
+      <Badge userBadge={props.userBadge}/>
       <UserInfo author={props.author}/>
-      <Badges userBadge={props.userBadge}/>
       <CommentBody commentHeading={props.commentHeading} text={props.text} date={props.date}/>
     </div>
   );
@@ -96,7 +97,7 @@ function Application(props) {
   return(
     <div className="col-sm-12">
       <h1>A Facebook Post or something</h1>
-        return {commentsArray}
+        {commentsArray}
     </div>
   );
 }

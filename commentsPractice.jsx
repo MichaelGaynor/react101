@@ -26,6 +26,20 @@ var data = [
       'Bard',
       'Samurai swordsman'
     ]
+  },
+  {
+    author:{
+      avatarUrl: "https://png.icons8.com/trinity/color/1600/",
+      name: "user"
+    },
+    commentHeading: "Hello? Help I",
+    text: "think I'm stuck in this computer. Can anyone",
+    date: "help? ",
+    userBadge: [
+      'Is there',
+      'anyone lis',
+      'tening?'
+    ]
   }
 ]
 

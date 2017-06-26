@@ -1,0 +1,29 @@
+body {
+    background-color: lavender;
+    color: white;
+    font-size: 16px;
+}
+
+div.FilterableProductTable {
+    background-color: magenta;
+    margin-top: 40px;
+    padding: 10px;
+    border-radius: 50px;
+    overflow: hidden;
+}
+
+div.productCategory {
+    font-family: sans-serif;
+    font-size: 24px;
+}
+
+div.item {
+    background-color: indigo;
+    margin-top: 5px;
+}
+
+div.item:hover {
+    background-color: rebeccapurple;
+    color: thistle;
+    cursor: pointer;
+}

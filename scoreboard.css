@@ -1,0 +1,16 @@
+body {
+    background-color: midnightblue;
+    color: plum;
+    font-size: 30px;
+    font-family: monospace;
+}
+
+button.btn {
+    font-size: 300px;
+}
+
+.team-score {
+    float: left;
+    padding: 20px;
+}
+
